@@ -3,12 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "homepage": "http://realmind87.github.io/recoil-example",
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.prod.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "build": "webpack --config config/webpack.prod.js"
   },
   "dependencies": {
     "axios": "^1.2.0",
