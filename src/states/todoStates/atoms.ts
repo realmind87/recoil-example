@@ -1,7 +1,6 @@
 import { atom } from 'recoil'
 import { TodoTypes } from './types'
 
-
 export const inputState = atom<string>({
     key: 'inputState',
     default: ""
@@ -13,7 +12,7 @@ export const TodoListState = atom<TodoTypes[]>({
         {
             id: 1,
             content: 'todo1',
-            isCompleted: false
+            isCompleted: true
         },
         {
             id: 2,
@@ -21,4 +20,9 @@ export const TodoListState = atom<TodoTypes[]>({
             isCompleted: false
         }
     ]
+})
+
+export const TodoFilterValue = atom<string>({
+    key: 'TodoFilterValue',
+    default: "default"
 })
