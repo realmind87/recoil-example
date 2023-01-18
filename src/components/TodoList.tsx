@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, Suspense } from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { TodoListState } from '@/states/todoStates/atoms'
 import { filteredTodoListState } from '@/states/todoStates/selectors'
@@ -25,7 +25,7 @@ const TodoList = () => {
     
     return (
         <div>
-            {todos.map(({id, content, isCompleted}) => {
+            {todos?.map(({id, content, isCompleted}) => {
                 return (
                     <TodoItem 
                         key={id}

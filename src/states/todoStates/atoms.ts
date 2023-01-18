@@ -8,18 +8,7 @@ export const inputState = atom<string>({
 
 export const TodoListState = atom<TodoTypes[]>({
     key: 'TodoListState',
-    default: [
-        {
-            id: 1,
-            content: 'todo1',
-            isCompleted: true
-        },
-        {
-            id: 2,
-            content: 'todo2',
-            isCompleted: false
-        }
-    ]
+    default: []
 })
 
 export const TodoFilterValue = atom<string>({
