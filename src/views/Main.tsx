@@ -1,7 +1,12 @@
+import TodoInput from "@/components/TodoInput"
+import TodoList from "@/components/TodoList"
 
 const Main = () => {
     return (
-        <div>Main Kim</div>
+        <div className="todoContainer">
+            <TodoInput />
+            <TodoList />
+        </div>
     )
 }
 
