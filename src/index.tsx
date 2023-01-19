@@ -9,8 +9,7 @@ const root = createRoot(container as Element)
 root.render(
     <RecoilRoot>
         <BrowserRouter>
-            
-                <App />
+            <App />
         </BrowserRouter>
     </RecoilRoot>
 )
