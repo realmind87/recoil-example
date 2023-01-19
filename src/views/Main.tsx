@@ -1,18 +1,5 @@
-import { Suspense } from 'react'
-import TodoInput from "@/components/TodoInput"
-import TodoList from "@/components/TodoList"
-import TodoFooter from "@/components/TodoFooter"
+import TodoTemplete from '@/components/TodoTemplete'
 
-const Main = () => {
-    return (
-        <div className="todoContainer">
-            <TodoInput />
-            <Suspense fallback={<div>...Loading</div>}>
-                <TodoList />
-            </Suspense>
-            <TodoFooter />
-        </div>
-    )
-}
+const Main = () => <TodoTemplete />
 
 export default Main

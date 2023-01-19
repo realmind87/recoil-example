@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { useRecoilState, useSetRecoilState } from "recoil"
 import { TodoListState, TodoFilterValue } from "@/states/todoStates/atoms"
+import { Footer, Select, Button } from './styled'
 
 const TodoFooter = () => {
     const [filter, setFilter] = useRecoilState(TodoFilterValue)
@@ -31,16 +32,16 @@ const TodoFooter = () => {
     }, [])
 
     return (
-        <div>
-            <select value={filter} onChange={onChangeFilter}>
+        <Footer>
+            <Select value={filter} onChange={onChangeFilter}>
                 <option value="default">Default</option>
                 <option value="completed">Completed</option>
                 <option value="noComplete">No Complete</option>
-            </select>
-            <button onClick={onAllComplete}>All Complete</button>
-            <button onClick={onAllRemoveComplete}>All Not Complete</button>
-            <button onClick={onAllDelete}>All Delete</button>
-        </div>
+            </Select>
+            <Button onClick={onAllComplete}>All Complete</Button>
+            <Button onClick={onAllRemoveComplete}>All Not Complete</Button>
+            <Button onClick={onAllDelete}>All Delete</Button>
+        </Footer>
     )
 }
 

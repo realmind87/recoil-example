@@ -1,7 +1,9 @@
-import React, { ChangeEvent, useCallback, KeyboardEvent } from 'react'
+import React, { ChangeEvent, useCallback } from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { inputState, TodoListState } from '@/states/todoStates/atoms'
 import { TodoTypes } from '@/states/todoStates/types'
+import { Wrapper, Form, Input, Button } from './styled'
+import { AiTwotoneEdit } from 'react-icons/ai'
 
 const TodoInput = () => {
 
@@ -36,14 +38,16 @@ const TodoInput = () => {
     // }, [])
 
     return (
-        <form onSubmit={onAddTodo}>
-            <input 
-                type='text' 
-                value={content}
-                onChange={onChange} 
-            />
-            <button>등록</button>
-        </form>
+        <Wrapper>
+            <Form onSubmit={onAddTodo}>
+                <Input
+                    type='text' 
+                    value={content}
+                    onChange={onChange} 
+                />
+                <Button><AiTwotoneEdit /></Button>
+            </Form>
+        </Wrapper>
     )
 }
 

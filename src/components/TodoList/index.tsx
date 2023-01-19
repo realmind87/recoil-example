@@ -3,6 +3,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { TodoListState } from '@/states/todoStates/atoms'
 import { filteredTodoListSelector } from '@/states/todoStates/selectors'
 import TodoItem from '@/components/TodoItem'
+import { List } from './styled'
 
 const TodoList = () => {
     const todos = useRecoilValue(filteredTodoListSelector)
@@ -21,12 +22,12 @@ const TodoList = () => {
             return prevTodos.filter(todo => todo.id !== id)
         })
     }, [todos])
-    
+
     return (
-        <div>
+        <List>
             {todos?.map(({id, content, isCompleted}) => {
                 return (
-                    <TodoItem 
+                    <TodoItem
                         key={id}
                         id={id}
                         content={content}
@@ -38,7 +39,7 @@ const TodoList = () => {
                     />
                 )
             })}
-        </div>
+        </List>
     )
 }
 
