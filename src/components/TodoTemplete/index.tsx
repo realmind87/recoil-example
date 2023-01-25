@@ -8,9 +8,7 @@ const TodoTemplete = () => {
     return (
         <Container>
             <TodoInput />
-            <Suspense fallback={<div>...Loading</div>}>
-                <TodoList />
-            </Suspense>
+            <TodoList />
             <TodoFooter />
         </Container>
     )

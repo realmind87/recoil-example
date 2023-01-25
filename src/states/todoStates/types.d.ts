@@ -2,7 +2,7 @@ import { SetterOrUpdater } from 'recoil'
 
 // Todo default types
 export type TodoTypes = {
-    id: number;
+    id?: number;
     content: string;
     isCompleted: boolean;
 }

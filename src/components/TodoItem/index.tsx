@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { PropsType, TodoTypes } from '@/states/todoStates/types'
+import { fetchState } from '@/api'
 import { Item, Text, CheckBox, Input, ButtonWrapper, Button } from './styled'
 import { FiEdit2 } from 'react-icons/fi'
 import { RiDeleteBinLine } from 'react-icons/ri'
@@ -9,6 +10,7 @@ const TodoItem = ({ id, content, isCompleted, onComplete, onDelete, todos, setTo
     
     const [isModify, setModify] = useState<boolean>(false);
     const [modifyContent, setModifyContent] = useState<string>("")
+    const { edit } = fetchState()
 
     const onModify = useCallback((id: number) => {
         const index = todos.findIndex((todo) => todo.id === id)
@@ -18,13 +20,9 @@ const TodoItem = ({ id, content, isCompleted, onComplete, onDelete, todos, setTo
 
     const onModifyDone = useCallback(() => {
         if (!modifyContent.trim()) return
-        setTodos(prevTodos => {
-            return prevTodos.map((todo: TodoTypes) => {
-                return todo.id === id ? { ...todo, content: modifyContent } : todo
-            })
-        })
+        edit(id, {content: modifyContent, isCompleted})
         setModify(false)
-    }, [id, modifyContent])
+    }, [id, isCompleted, modifyContent])
 
     const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
@@ -33,14 +31,14 @@ const TodoItem = ({ id, content, isCompleted, onComplete, onDelete, todos, setTo
 
     return (
         <Item>
-            <CheckBox type="checkbox" checked={isCompleted} disabled={isModify} onChange={() => onComplete(id)} />
+            <CheckBox type="checkbox" checked={isCompleted} onChange={() => onComplete(id)} />
             {!isModify
                 ? <Text className={isCompleted ? 'on' : ''}>{content}</Text>
                 : <Input type='text' className={modifyContent.length === 0 ? "wran" : ""} value={modifyContent} onChange={onChange} />
             }
             <ButtonWrapper>
                 {!isModify
-                    ? <Button onClick={() => onModify(id)} disabled={isCompleted}><FiEdit2 /></Button> 
+                    ? <Button onClick={() => onModify(id)}><FiEdit2 /></Button> 
                     : <Button onClick={onModifyDone}><IoSettingsOutline /></Button>
                 }
                 <Button onClick={() => onDelete(id)}><RiDeleteBinLine /></Button>

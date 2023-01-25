@@ -1,14 +1,14 @@
 import { selector } from 'recoil'
-import { TodoListState, TodoFilterValue } from './atoms'
+import { todoListState, todoFilter } from './atoms'
 
 export const filteredTodoListSelector = selector({
     key: 'filteredTodoListState',
     get: ({ get }) => {
-        const filterValue = get(TodoFilterValue)
-        const todos = get(TodoListState)
-        if (filterValue === 'completed'){
+        const key = get(todoFilter)
+        const todos = get(todoListState)
+        if (key === 'completed'){
             return todos.filter(todo => todo.isCompleted === true)
-        } else if (filterValue === 'noComplete'){
+        } else if (key === 'noComplete'){
             return todos.filter(todo => todo.isCompleted === false)
         } else {
             return todos

@@ -1,23 +1,18 @@
 import { atom, selector } from 'recoil'
 import { TodoTypes } from './types'
-import { getTodo } from '@/api/todos'
+import { fetch } from '@/api'
 
-export const inputState = atom<string>({
-    key: 'inputState',
-    default: ""
-})
-
-export const TodoListState = atom<TodoTypes[]>({
-    key: 'TodoListState',
-    default: selector({
-        key: 'TodoListState/Default',
+export const todoListState = atom<TodoTypes[]>({
+    key: 'todoListState',
+    default: selector<TodoTypes[]>({
+        key: 'todoListState/selector',
         get: async () => {
-            return await getTodo()
+            return await fetch({method: 'get', url: '/todos'})
         }
     })
 })
 
-export const TodoFilterValue = atom<string>({
-    key: 'TodoFilterValue',
+export const todoFilter = atom<string>({
+    key: 'todoFilter',
     default: "default"
 })

@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react'
 import { useRecoilState, useSetRecoilState } from "recoil"
-import { TodoListState, TodoFilterValue } from "@/states/todoStates/atoms"
+import { todoListState, todoFilter } from "@/states/todoStates/atoms"
 import { Footer, Select, Button } from './styled'
 
 const TodoFooter = () => {
-    const [filter, setFilter] = useRecoilState(TodoFilterValue)
-    const setTodos = useSetRecoilState(TodoListState)
+    const [filter, setFilter] = useRecoilState(todoFilter)
+    const setTodos = useSetRecoilState(todoListState)
     const onChangeFilter = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
         const { value } = e.target
         setFilter(value)

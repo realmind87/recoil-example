@@ -6,12 +6,12 @@ const GlobalStyles = createGlobalStyle`
     dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,input,button,textarea,object,figure,figcaption {
         margin:0;
         padding:0;
-        font-family: : 맑은 고딕, malgun gothic, AppleGothicNeoSD, Apple SD 산돌고딕 Neo, Microsoft NeoGothic,  Droid sans, sans-serif;
+        font-family: 맑은 고딕, malgun gothic, AppleGothicNeoSD, Apple SD 산돌고딕 Neo, Microsoft NeoGothic,  Droid sans, sans-serif;
         font-size: 10px;
         line-height: 1;
         color:#00142F;
         box-sizing: border-box;
-        font-weight: $font-regular;
+        font-weight: 300;
     }
 
     a {
