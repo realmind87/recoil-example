@@ -9,7 +9,7 @@ export type TodoTypes = {
 
 // TodoItem types
 export type PropsType = {
-    id: number;
+    id: any;
     content: string;
     isCompleted: boolean;
     onComplete: (id: number) => void;
